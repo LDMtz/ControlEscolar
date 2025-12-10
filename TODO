@@ -1,0 +1,159 @@
+TODO - Control escolar:
+
+    Objetivos generales:
+        ✔ 1. Herramientas y extensiones @done(25-12-10 02:08)
+        ☐ 2. Inicializar proyecto
+        ☐ 3. Repositorio remoto
+        ☐ 4. Backend - API
+        ☐ 5. Frontend - UI
+        ☐ 6. Integracion Front-Backend
+        ☐ 7. Configuración de Docker
+        ☐ 8. Testeo
+        ☐ 9. Documentación
+        ☐ 10. Entrega
+    
+    1. Herramientas y extensiones:
+        Instalar extensiones para:
+            ✔ Checklist (TODO+) @done(25-12-09 21:15)
+            ✔ Tailwind CSS @done(25-12-10 01:42)
+            ✘ Typescript @cancelled(25-12-10 01:47)
+            ✔ React @done(25-12-10 01:48)
+            ✔ errorlens @done(25-12-09 21:39)
+            ✔ ThunderClient @done(25-12-10 01:59)
+
+        Tecnologías / Herramientas requeridas:
+            ✔ Git @done(25-12-10 01:49)
+            ✔ Node @done(25-12-10 01:49)
+            ✔ Docker desktop  @done(25-12-10 02:08)
+            ✔ DBeaver @done(25-12-10 01:58)
+            ✘ Postman @cancelled(25-12-10 01:59)
+    
+    2. Inicializar proyecto:
+
+        ✔ Crear carpetas /backend y /frontend @done(25-12-10 02:11)
+        
+        Frontentd:
+            ✔ Inicializar react @done(25-12-10 02:55)
+            ✔ Instalar dependencias @done(25-12-10 03:07)
+                ✔ axios (Solic. HTTP) @done(25-12-10 03:00)
+                ✔ react / react-dom / react-router-dom (Interfaces) @done(25-12-10 02:55)
+                ✔ tailwind (CSS) @done(25-12-10 02:55)
+                ✔ typescript @done(25-12-10 03:01)
+                ✔ eslint @done(25-12-10 03:04)
+
+            ✔ Screaming architecture @done(25-12-10 03:13)
+            ✔ Inicializar tailwind @done(25-12-10 03:28)
+
+        Backend:
+            ✔ Inicializar Node (npm init -y) @done(25-12-10 03:31)
+            ✔ Instalar dependencias @done(25-12-10 03:57)
+                ✔ bcryptjs (Hash) @done(25-12-10 03:33)
+                ✔ cors (Navegador) @done(25-12-10 03:33)
+                ✔ dotenv (.env) @done(25-12-10 03:33)
+                ✔ express / express-validator (API) @done(25-12-10 03:34)
+                ✔ helmet (Middleware) @done(25-12-10 03:34)
+                ✔ JWT (Auth) @done(25-12-10 03:35)
+                ✔ morgan (Peticiones HTTP) @done(25-12-10 03:35)
+                ✔ pg / pg-hstore (PostgreSql) @done(25-12-10 03:36)
+                ✔ sequelize (ORM) @done(25-12-10 03:36)
+                ✔ typescript / types/node / ts-node @done(25-12-10 03:39)
+
+                ✔ eslint (Errores) @done(25-12-10 03:44)
+                ✘ jest (Test - ???) @cancelled(25-12-10 03:44)
+                ✔ nodemon (Reiniciar servidor auto) @done(25-12-10 03:44)
+                ✔ prettier (Formatear codigo) @done(25-12-10 03:48)
+                ✘ supertest (Test - ???) @cancelled(25-12-10 03:44)
+
+            ✔ Crear estructura MVC @done(25-12-10 04:31)
+            ✔ Separar por capas @done(25-12-10 04:36)
+            ✔ Scripts en el package.json @done(25-12-10 05:37)
+            ✔ Crear .env y .env-example @done(25-12-10 05:37)
+            ✔ Crear archvo de config de typescript (npx tsc --init) @done(25-12-10 05:38)
+            ✔ Pasar de CommonJS a ESModules @done(25-12-10 05:41)
+            ☐ Archivo de conf de Prettier
+            ☐ Archivo de conf de eslint
+  
+        ✔ Crear README.md @done(25-12-10 05:41)
+
+    3. Repositorio remoto:
+        ✔ Crear repositorio en github @done(25-12-10 05:49)
+        ✔ Agg .gitignore al proyecto  @done(25-12-10 05:49)
+        ☐ Crear estructura de ramas (main / develop / features)
+
+    4. Backend - API:
+        ☐ Configurar sequielize
+        ☐ Configuracion del servidor
+        ☐ Modelos
+        ☐ Migraciones
+        ☐ Seeders
+        ☐ Middlewares
+        ☐ Controladores
+        ☐ Rutas / Endpoints
+        ☐ Testing
+
+    5. Frontend - UI:
+        ☐ Configurar axios
+        ☐ Tipos de Typescript
+        ☐ Servicios (Lllamadas a las APIs)
+        ☐ Vistas
+            ☐ Login
+            ☐ Register
+            ☐ Home Admin / Maestro
+            ☐ Navbar
+            ☐ ...
+        ☐ Componentes
+            ☐ Header, Footer y Body
+            ☐ Spinner de carga
+            ☐ Modal de error
+            ☐ ...
+        ☐ Testing
+
+    6. Integracion Front-Backend:
+        ☐ ???
+
+    7. Configuracion de docker:
+        ☐ ???
+
+    8. Testeo:
+        ☐ ???
+    
+    Pendientes urgentes:
+        ☐ En el backend, llenar el .env-example
+
+    Ramas:
+        ☐ feature/inicializacion
+
+        ☐ feature/migrations
+        ☐ feature/api-auth
+        ☐ feature/api-control-escolar
+        ☐ feature/api-maestro
+        ☐ feature/api-materias
+        ☐ feature/api-calificaciones
+        ☐ feature/seeders
+        
+        ☐ feature/ui-auth
+        ☐ feature/ui-admin
+        ☐ feature/ui-maestro
+
+        ☐ feature/docker (???)
+        ☐ feature/test (???)
+    
+    Readme:
+        ☐ Explicar Screaming Architecture
+            ☐ ¿Por qué se eligió?
+            ☐ ¿Qué significa cada carpeta
+
+        ☐ Explicar ESModules
+            ☐ ¿Por qué no CommonJs?
+            ☐ Diferencias entre CommonJs y ESModules
+
+        ☐ Explicar MVC
+            ☐ 3 CAPAS (Presentación, Lógica de Negocio y Acceso a datos)
+
+    Extra:
+        ☐ Pagina de errores personalizada
+
+        
+
+
+                
