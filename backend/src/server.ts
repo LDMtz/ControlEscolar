@@ -1,13 +1,39 @@
-import express from "express";
-import type { Request, Response } from "express";
+import app from './app.js';
+import * as dotenv from 'dotenv';
 
-const app = express();
-const PORT = 3000;
+import { getSequelizeInstance } from "./config/database.js";
 
-app.get("/", (req: Request, res: Response) => {
-    res.send("Servidor funcionando correctamente!");
+// Cargargar variables de entorno
+dotenv.config(); 
+
+const PORT = process.env.PORT || 3000;
+
+//Obtiene instancia de sequelize
+const sequelize = getSequelizeInstance({
+    host: process.env.DB_HOST!,
+    port: Number(process.env.DB_PORT),
+    database: process.env.DB_NAME!,
+    user: process.env.DB_USER!,
+    password: process.env.DB_PASSWORD!,
+    env: process.env.NODE_ENV!
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
-});
+const startServer = async () =>{
+    try {
+        console.log("\n-> CONECTANDO A LA BD Y LEVANTANDO EL SERVIDOR:")
+
+        // Verificar conexión
+        await sequelize.authenticate();
+        console.log("Conexión a la BD establecida.");
+
+        //Levantar el servidor
+        app.listen(PORT, () => {
+            console.log(`Servidor corriendo en http://localhost:${PORT}\n`);
+        });
+    } catch (error) {
+        console.error("Error al iniciar la aplicación:", error);
+        process.exit(1);
+    }
+}
+
+startServer();
