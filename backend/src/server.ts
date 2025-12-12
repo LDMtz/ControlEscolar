@@ -1,6 +1,8 @@
 import * as dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 
 import db from "./config/database.js";
 
@@ -10,7 +12,11 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+//Middlewares
 app.use(cors());
+app.use(helmet());
+app.use(express.json());
+app.use(morgan('dev')); 
 
 app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}\n`));
 
