@@ -1,26 +1,22 @@
-import { Sequelize } from "sequelize";
+import { Sequelize } from 'sequelize';
+import * as dotenv from 'dotenv';
 
-export interface DBConfig {
-  host: string;
-  port: number;
-  database: string;
-  user: string;
-  password: string;
-  env: string;
-}
+// Cargar variables de entorno
+dotenv.config();
 
-export const getSequelizeInstance = ({
-  host,
-  port,
-  database,
-  user,
-  password,
-  env,
-}: DBConfig) => {
-  return new Sequelize(database, user, password, {
-    host,
-    port,
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+const PORT = Number(process.env.DB_PORT) || 5432;
+const DB_NAME = process.env.DB_NAME || 'postgres';
+const DB_USER = process.env.DB_USER || 'postgres';
+const DB_PASSWORD = process.env.DB_PASSWORD || 'postgres';
+const DB_HOST = process.env.DB_HOST || 'localhost';
+
+const db = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
+    host: DB_HOST,
+    port: PORT,
     dialect: "postgres",
-    logging: env === 'development' ? true : false,
+    logging: NODE_ENV === 'development' ? true : false,
   });
-};
+
+export default db;
