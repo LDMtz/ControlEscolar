@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 import express from 'express';
+import cors from 'cors';
 
 import db from "./config/database.js";
 
@@ -8,6 +9,8 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 
 const app = express();
+
+app.use(cors());
 
 app.listen(PORT, () => console.log(`Servidor corriendo en http://localhost:${PORT}\n`));
 
