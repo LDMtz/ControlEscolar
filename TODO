@@ -2,8 +2,8 @@ TODO - Control escolar:
 
     Objetivos generales:
         ✔ 1. Herramientas y extensiones @done(25-12-10 02:08)
-        ☐ 2. Inicializar proyecto
-        ☐ 3. Repositorio remoto
+        ✔ 2. Inicializar proyecto @done(25-12-12 22:43)
+        ✔ 3. Repositorio remoto @done(25-12-12 22:43)
         ☐ 4. Backend - API
         ☐ 5. Frontend - UI
         ☐ 6. Integracion Front-Backend
@@ -78,13 +78,13 @@ TODO - Control escolar:
     3. Repositorio remoto:
         ✔ Crear repositorio en github @done(25-12-10 05:49)
         ✔ Agg .gitignore al proyecto  @done(25-12-10 05:49)
-        ☐ Crear estructura de ramas (main / develop / features)
+        ✔ Crear estructura de ramas (main / develop / features) @done(25-12-12 19:47)
 
     4. Backend - API:
-        ☐ Configurar sequielize
-        ☐ Configuracion del servidor
-        ☐ Modelos
+        ✔ Configurar sequielize @done(25-12-12 19:48)
+        ✔ Configuracion del servidor @done(25-12-12 19:48)
         ☐ Migraciones
+        ☐ Modelos
         ☐ Seeders
         ☐ Middlewares
         ☐ Controladores
@@ -118,10 +118,12 @@ TODO - Control escolar:
         ☐ ???
     
     Pendientes urgentes:
-        ☐ En el backend, llenar el .env-example
+        ✔ En el backend, llenar el .env-example @done(25-12-12 19:55)
 
     Ramas:
-        ☐ feature/inicializacion
+        ✔ feature/inicializacion-proyecto @done(25-12-11 22:51)
+        ✔ feature/backend-setup @done(25-12-12 23:08)
+
 
         ☐ feature/migrations
         ☐ feature/api-auth
@@ -149,9 +151,23 @@ TODO - Control escolar:
 
         ☐ Explicar MVC
             ☐ 3 CAPAS (Presentación, Lógica de Negocio y Acceso a datos)
+            ☐ Flujo server.ts / database.ts / app.ts 
+
+        ☐ Explicar las organizacion de carpetas
+        ☐ Explicar que se hizo en cada rama (ver los commits)
+
+        ☐ Explicar conexión a Sequelize
+            ☐ Flujo de .sequelizerc -> database.config -> database.ts -> models.ts -> server.ts -> app.ts
 
     Extra:
         ☐ Pagina de errores personalizada
+    
+    Revisar: 
+        ☐ Eslinst
+        ✔ Entender lo de los modelos en desarrollo solamente (NODE_ENV ) @done(25-12-12 05:37)
+        ✔ Entender diferencia entre app.ts y server,ts, la func  inicializarApp no deberia ir en archivo app.ts? @done(25-12-12 19:55)
+        ☐ Entender flujo server.ts / database.ts / app.ts
+        ☐ Entender flijo para conectar sequelize + sequelize cli
 
         
 
