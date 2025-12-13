@@ -6,7 +6,7 @@ import morgan from 'morgan';
 
 import type { Application } from 'express';
 
-import db from "./config/database.js";
+import sequelize from './models/index.js';
 
 dotenv.config(); 
 
@@ -34,7 +34,7 @@ class Server {
     // Conexión a la BD
     private async dbConnection() {
         try {
-            await db.authenticate().then(() => console.log("Conexión a la BD establecida."));
+            await sequelize.authenticate().then(() => console.log("Conexión a la BD establecida."));
         } catch (error) {
             console.error("Error al conectar a la BD:", error), process.exit(1);
         }
