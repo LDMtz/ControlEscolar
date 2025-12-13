@@ -1,7 +1,12 @@
 import { Sequelize } from 'sequelize';
-import config from '../config/database.js';
+import type { Dialect } from 'sequelize';
 
-// Tipos de entorno válidos para la configuración de BD
+import { createRequire } from 'module';
+
+// Crear require para importar el archivo CommonJS
+const require = createRequire(import.meta.url);
+const config = require('../config/database.cjs') as Config;
+
 type ConfigKeys = 'development' | 'test' | 'production';
 
 const env = (process.env.NODE_ENV || 'development') as ConfigKeys;
@@ -18,5 +23,21 @@ const sequelize = new Sequelize(
     logging: env === 'development' ? console.log : false
   }
 );
+
+//Tipos
+interface DatabaseConfig {
+  username: string;
+  password: string;
+  database: string;
+  host: string;
+  port: number;
+  dialect: Dialect;
+}
+
+interface Config {
+  development: DatabaseConfig;
+  test: DatabaseConfig;
+  production: DatabaseConfig;
+}
 
 export default sequelize;
