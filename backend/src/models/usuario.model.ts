@@ -7,15 +7,36 @@ export class Usuario extends Model {
   declare email: string;
   declare password_hash: string;
   declare rol_id: number;
+  declare created_at: Date;
+  declare updated_at: Date;
+  declare deleted_at?: Date;
 }
 
 Usuario.init(
   {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    nombre: { type: DataTypes.STRING(120), allowNull: false },
-    email: { type: DataTypes.STRING(255), unique: true },
-    password_hash: { type: DataTypes.STRING(255), allowNull: false },
-    rol_id: { type: DataTypes.INTEGER, allowNull: false },
+    id: { 
+      type: DataTypes.INTEGER, 
+      autoIncrement: true,
+      allowNull: false,
+      primaryKey: true, 
+    },
+    nombre: { 
+      type: DataTypes.STRING(120), 
+      allowNull: false 
+    },
+    email: { 
+      type: DataTypes.STRING(255), 
+      allowNull: false,
+      unique: true 
+    },
+    password_hash: { 
+      type: DataTypes.STRING(255), 
+      allowNull: false 
+    },
+    rol_id: { 
+      type: DataTypes.INTEGER, 
+      allowNull: false 
+    },
   },
   {
     sequelize,
