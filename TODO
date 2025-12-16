@@ -86,7 +86,7 @@ TODO - Control escolar:
         ✔ Migraciones @done(25-12-13 21:50)
         ☐ Modelos
         ☐ Seeders
-        ☐ Middlewares
+        ✔ Middlewares @done(25-12-16 03:29)
         ☐ Controladores
         ☐ Rutas / Endpoints
         ☐ Testing
@@ -124,8 +124,8 @@ TODO - Control escolar:
         ✔ feature/inicializacion-proyecto @done(25-12-11 22:51)
         ✔ feature/backend-setup @done(25-12-12 23:08)
         ✔ feature/backend-migrations @done(25-12-13 21:50)
+        ✔ feature/api-auth @done(25-12-16 03:29)
 
-        ☐ feature/api-auth
         ☐ feature/api-control-escolar
         ☐ feature/api-maestro
         ☐ feature/api-materias
@@ -165,6 +165,20 @@ TODO - Control escolar:
             ☐ Comando: npx sequelize-cli db:migrate:undo
             ☐ Por qué se crea migracion para insertar roles por defecto y por que no como seeders
 
+        ☐ Explicar middleware para manejo centralizado de errores
+            ☐ Clase AppError.ts
+            ☐ Propagacion de errores
+        
+        ☐ Explicar middleware validate para validaciones de express
+            ☐ Relacion entre validate y validations/***.validate.ts
+        
+        ☐ Explicar middleware de autorizacion por rol
+
+        ☐ Explicar endpoints:
+            ☐ Login
+
+
+
     Extra:
         ☐ Pagina de errores personalizada
     
@@ -174,8 +188,11 @@ TODO - Control escolar:
         ✔ Entender diferencia entre app.ts y server,ts, la func  inicializarApp no deberia ir en archivo app.ts? @done(25-12-12 19:55)
         ☐ Entender flujo server.ts / database.ts / app.ts
         ☐ Entender flijo para conectar sequelize + sequelize cli
-
-        
-
-
-                
+        ☐ Cambiar todos los tipos a la carpeta types
+        ☐ Renombrar los tipos a .d.ts
+        ✔ Devolver siempre respuesta json, no html en la response de la api @done(25-12-16 03:34)
+        ✔ Entender como funcionan los JSON web token @done(25-12-16 03:34)
+        ✔ Entender clase AppError.ts @done(25-12-16 03:34)
+        ✔ Entender propagacion de errores a middleware general @done(25-12-16 03:34)
+        ✔ Probar endpoint login @done(25-12-16 03:34)
+        ✔ Entender bien la relacion entre 'validate.middleware.ts' y 'validations/***.validate.ts' @done(25-12-16 03:34)
