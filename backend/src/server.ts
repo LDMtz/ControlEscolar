@@ -8,6 +8,9 @@ import type { Application } from 'express';
 
 import sequelize from './models/index.js';
 
+import authRoutes from './routes/auth.routes.js';
+import { errorHandler } from './middlewares/error.middleware.js';
+
 dotenv.config(); 
 
 //Clase Server, que inicializa y configura el servidor
@@ -26,9 +29,11 @@ class Server {
         // 2. Middlewares
         this.middlewares();
 
-        //TODO: 3. Definición de Rutas (Endpoints)
+        //3. Definición de Rutas (Endpoints)
+        this.routes();
 
-        //TODO: 4. Middlewares de Manejo de Errores
+        //TODO: 4. Middleware de manejo centralizado de errores
+        this.handleErrors();
     }
 
     // Conexión a la BD
@@ -53,6 +58,15 @@ class Server {
 
         // Morgan: Logs de peticiones en consola
         this.app.use(morgan('dev'));
+    }
+
+    //Definir rutas
+    private routes() {
+        this.app.use('/api/auth', authRoutes);
+    }
+
+    private handleErrors() {
+        this.app.use(errorHandler);
     }
 
     public listen() {
