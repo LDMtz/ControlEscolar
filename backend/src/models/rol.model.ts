@@ -9,9 +9,21 @@ export class Rol extends Model {
 
 Rol.init(
   {
-    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    nombre: { type: DataTypes.STRING(30), allowNull: false },
-    descripcion: { type: DataTypes.STRING(255) },
+    id: { 
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      allowNull: false, 
+      primaryKey: true,
+    },
+    nombre: { 
+      type: DataTypes.STRING(30), 
+      allowNull: false,
+      unique: true
+    },
+    descripcion: { 
+      type: DataTypes.STRING(255),
+      allowNull: true
+    },
   },
   {
     sequelize,
