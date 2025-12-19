@@ -10,8 +10,9 @@ import './models/index.js';
 import sequelize from './models/sequelize.js';
 
 import authRoutes from './routes/auth.routes.js';
-import { errorHandler } from './middlewares/error.middleware.js';
+import maestroRoutes from './routes/maestro.routes.js';
 
+import { errorHandler } from './middlewares/error.middleware.js';
 import { AppError } from './utils/AppError.js';
 
 dotenv.config(); 
@@ -66,6 +67,7 @@ class Server {
     //Definir rutas
     private routes() {
         this.app.use('/api/auth', authRoutes);
+        this.app.use('/api/maestro', maestroRoutes);
         this.app.use((_req, _res, next) => next(new AppError('Endpoint no encontrado', 404)));
     }
 
