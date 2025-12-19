@@ -1,6 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import sequelize from './index.js';
-import { addAbortSignal } from 'stream';
+import sequelize from './sequelize.js';
 
 export class Materia extends Model {
   declare id: number;

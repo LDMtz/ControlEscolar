@@ -6,10 +6,13 @@ import morgan from 'morgan';
 
 import type { Application } from 'express';
 
-import sequelize from './models/index.js';
+import './models/index.js';
+import sequelize from './models/sequelize.js';
 
 import authRoutes from './routes/auth.routes.js';
 import { errorHandler } from './middlewares/error.middleware.js';
+
+import { AppError } from './utils/AppError.js';
 
 dotenv.config(); 
 
@@ -32,7 +35,7 @@ class Server {
         //3. Definición de Rutas (Endpoints)
         this.routes();
 
-        //TODO: 4. Middleware de manejo centralizado de errores
+        //4. Middleware de manejo centralizado de errores
         this.handleErrors();
     }
 
@@ -63,6 +66,7 @@ class Server {
     //Definir rutas
     private routes() {
         this.app.use('/api/auth', authRoutes);
+        this.app.use((_req, _res, next) => next(new AppError('Endpoint no encontrado', 404)));
     }
 
     private handleErrors() {

@@ -1,43 +1,41 @@
-import { Sequelize } from 'sequelize';
-import type { Dialect } from 'sequelize';
+import { Alumno } from './alumno.model.js';
+import { Calificacion } from './calificacion.model.js';
+import { Materia } from './materia.model.js';
+import { Usuario } from './usuario.model.js';
+import { Rol } from './rol.model.js';
 
-import { createRequire } from 'module';
+/* =========================
+   RELACIONES
+========================= */
 
-// Crear require para importar el archivo CommonJS
-const require = createRequire(import.meta.url);
-const config = require('../config/database.cjs') as Config;
+// ROL <-> USUARIO
+Rol.hasMany(Usuario, { foreignKey: 'rol_id' });
+Usuario.belongsTo(Rol, { foreignKey: 'rol_id' });
 
-type ConfigKeys = 'development' | 'test' | 'production';
+// ALUMNO <-> CALIFICACIÓN
+Alumno.hasMany(Calificacion, {
+  foreignKey: 'alumno_id',
+  as: 'calificaciones',
+});
+Calificacion.belongsTo(Alumno, {
+  foreignKey: 'alumno_id',
+});
 
-const env = (process.env.NODE_ENV || 'development') as ConfigKeys;
-const dbConfig = config[env]; 
+// MATERIA <-> CALIFICACIÓN
+Materia.hasMany(Calificacion, {
+  foreignKey: 'materia_id',
+  as: 'calificaciones',
+});
+Calificacion.belongsTo(Materia, {
+  foreignKey: 'materia_id',
+});
 
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  {
-    host: dbConfig.host,
-    port: dbConfig.port,
-    dialect: dbConfig.dialect,
-    logging: env === 'development' ? console.log : false
-  }
-);
-
-//Tipos
-interface DatabaseConfig {
-  username: string;
-  password: string;
-  database: string;
-  host: string;
-  port: number;
-  dialect: Dialect;
-}
-
-interface Config {
-  development: DatabaseConfig;
-  test: DatabaseConfig;
-  production: DatabaseConfig;
-}
-
-export default sequelize;
+// USUARIO (MAESTRO) <-> CALIFICACIÓN
+Usuario.hasMany(Calificacion, {
+  foreignKey: 'maestro_id',
+  as: 'calificaciones_otorgadas',
+});
+Calificacion.belongsTo(Usuario, {
+  foreignKey: 'maestro_id',
+  as: 'maestro',
+});

@@ -1,8 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import sequelize from './index.js';
-import { Usuario } from './usuario.model.js';
-import { Alumno } from './alumno.model.js';
-import { Materia } from './materia.model.js';
+import sequelize from './sequelize.js';
 
 export class Calificacion extends Model {
     declare id: number;
@@ -56,8 +53,3 @@ Calificacion.init(
         underscored: true,
     }
 );
-
-// Relaciones
-Calificacion.belongsTo(Alumno, { foreignKey: 'alumno_id' });
-Calificacion.belongsTo(Materia, { foreignKey: 'materia_id' });
-Calificacion.belongsTo(Usuario, { foreignKey: 'maestro_id', as: 'maestro' });
