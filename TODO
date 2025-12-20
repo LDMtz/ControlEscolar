@@ -16,7 +16,7 @@ TODO - Control escolar:
         Instalar extensiones para:
             ✔ Checklist (TODO+) @done(25-12-09 21:15)
             ✔ Tailwind CSS @done(25-12-10 01:42)
-            ✘ Typescript @cancelled(25-12-10 01:47)
+            ✔ Typescript @done(25-12-18 22:43)
             ✔ React @done(25-12-10 01:48)
             ✔ errorlens @done(25-12-09 21:39)
             ✔ ThunderClient @done(25-12-10 01:59)
@@ -26,7 +26,7 @@ TODO - Control escolar:
             ✔ Node @done(25-12-10 01:49)
             ✔ Docker desktop  @done(25-12-10 02:08)
             ✔ DBeaver @done(25-12-10 01:58)
-            ✘ Postman @cancelled(25-12-10 01:59)
+            ✔ Postman @done(25-12-18 22:43)
     
     2. Inicializar proyecto:
 
@@ -84,8 +84,8 @@ TODO - Control escolar:
         ✔ Configurar sequielize @done(25-12-12 19:48)
         ✔ Configuracion del servidor @done(25-12-12 19:48)
         ✔ Migraciones @done(25-12-13 21:50)
-        ☐ Modelos
-        ☐ Seeders
+        ✔ Modelos @done(25-12-18 22:43)
+        ✔ Seeders @done(25-12-18 22:43)
         ✔ Middlewares @done(25-12-16 03:29)
         ☐ Controladores
         ☐ Rutas / Endpoints
@@ -125,12 +125,11 @@ TODO - Control escolar:
         ✔ feature/backend-setup @done(25-12-12 23:08)
         ✔ feature/backend-migrations @done(25-12-13 21:50)
         ✔ feature/api-auth @done(25-12-16 03:29)
-
+        ✔ feature/sequelize-models @done(25-12-16 05:53)
+        ✔ feature/backend-seeders @done(25-12-18 21:08)
+        ✔ feature/api-maestro @done(25-12-20 07:36)
+        
         ☐ feature/api-control-escolar
-        ☐ feature/api-maestro
-        ☐ feature/api-materias
-        ☐ feature/api-calificaciones
-        ☐ feature/seeders
         
         ☐ feature/ui-auth
         ☐ feature/ui-admin
@@ -176,6 +175,10 @@ TODO - Control escolar:
 
         ☐ Explicar endpoints:
             ☐ Login
+            ☐ maestro/alumnos
+            ☐ maestro/calificaciones
+        
+        ☐ Explicar seeders 
 
 
 
@@ -196,3 +199,9 @@ TODO - Control escolar:
         ✔ Entender propagacion de errores a middleware general @done(25-12-16 03:34)
         ✔ Probar endpoint login @done(25-12-16 03:34)
         ✔ Entender bien la relacion entre 'validate.middleware.ts' y 'validations/***.validate.ts' @done(25-12-16 03:34)
+        ☐ Seeders
+            ☐ Renombrar a .cjs
+            ☐ Generar seeder: npx sequelize-cli seed:generate --name nombre-del-seeder
+            ☐ Ejecutar seeders: npx sequelize-cli db:seed:all
+
+        ☐ git log --oneline --graph --decorate

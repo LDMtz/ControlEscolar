@@ -8,7 +8,7 @@ export const requireRole = (rol: number) => {
 
         //Valida el rol del usuario autenticado con el requerido por la ruta
         if (req.user!.rol_id !== rol) {
-            return next(new AppError('Acceso denegado', 403));
+            return next(new AppError('Acceso denegado, rol no autorizado', 403));
         }
         
         //Continua al siguiente middleware
