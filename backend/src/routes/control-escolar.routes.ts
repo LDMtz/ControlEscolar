@@ -6,7 +6,7 @@ import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { requireRole } from '../middlewares/role.middleware.js';
 import { validate } from '../middlewares/validate.middleware.js';
 
-import { getReporteValidation, deleteCalificacionValidation } from '../validations/control-escolar.validate.js';
+import { getReporteValidation, deleteCalificacionValidation, patchCalificacionValidation } from '../validations/control-escolar.validate.js';
 
 const router = Router();
 
@@ -28,6 +28,14 @@ router.delete(
     deleteCalificacionValidation,
     validate,
     control_escolar.deleteCalificacion
+);
+
+router.patch(
+  '/calificaciones/:id',
+  authMiddleware,
+  patchCalificacionValidation,
+  validate,
+  control_escolar.patchCalificacion
 );
 
 export default router;

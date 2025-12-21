@@ -2,6 +2,7 @@ import { Sequelize, type WhereOptions } from 'sequelize';
 import { Calificacion } from '../models/calificacion.model.js';
 import { Alumno } from '../models/alumno.model.js';
 import { Materia } from '../models/materia.model.js';
+import { Usuario } from '../models/usuario.model.js';
 import { AppError } from '../utils/AppError.js';
 
 export const getReporteService = async (query: any) => {
@@ -36,18 +37,57 @@ export const getReporteService = async (query: any) => {
 };
 
 export const deleteCalificacionService = async (id: number) => {
-  const calificacion = await Calificacion.findByPk(id);
+    const calificacion = await Calificacion.findByPk(id);
 
-  if (!calificacion) {
-    throw new AppError('La calificación no existe', 404);
-  }
+    if (!calificacion) {
+        throw new AppError('La calificación no existe', 404);
+    }
 
-  // Soft delete (paranoid)
-  await calificacion.destroy();
+    // Soft delete (paranoid)
+    await calificacion.destroy();
 
-  return calificacion;
+    return calificacion;
 };
 
+export const patchCalificacionService = async (id: number, data: PatchCalificacionData) => {
+    const calificacion = await Calificacion.findByPk(id, { paranoid: false });
+
+    if (!calificacion) {
+        throw new AppError('La calificación no existe', 404);
+    }
+
+    const CAMPOS_PERMITIDOS = ['nota', 'observaciones', 'restore'];
+
+    const campoInvalidos = Object.keys(data).filter(
+        key => !CAMPOS_PERMITIDOS.includes(key)
+    );
+
+    if (campoInvalidos.length > 0) {
+        throw new AppError(
+        `Campos no permitidos: ${campoInvalidos.join(', ')}`,
+        400
+        );
+    }
+
+    // Restaurar primero si viene
+    if (data.restore) {
+        await calificacion.restore();
+    }
+
+    //Separamos el restore de el contenido a actualizar
+    const { restore, ...datosValidados } = data;
+
+    // Actualizar datos
+    await calificacion.update(datosValidados);
+
+    return calificacion;
+};
+
+interface PatchCalificacionData {
+    nota?: number;
+    observaciones?: string;
+    restore?: boolean;
+}
 
 // Funciones auxiliares
 const reporteAlumnos = async (query: any) => {
