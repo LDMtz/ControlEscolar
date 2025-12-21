@@ -28,6 +28,7 @@ Materia.hasMany(Calificacion, {
 });
 Calificacion.belongsTo(Materia, {
   foreignKey: 'materia_id',
+  as: 'materia',
 });
 
 // USUARIO (MAESTRO) <-> CALIFICACIÓN
