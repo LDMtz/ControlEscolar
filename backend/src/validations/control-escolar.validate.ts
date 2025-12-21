@@ -1,4 +1,4 @@
-import { query } from 'express-validator';
+import { query, param } from 'express-validator';
 
 
 export const getReporteValidation = [
@@ -28,4 +28,11 @@ export const getReporteValidation = [
     .optional()
     .isString()
     .withMessage('El codigo debe ser string'),
+];
+
+export const deleteCalificacionValidation = [
+  param('id')
+    .notEmpty().withMessage('El id de la calificación es obligatorio')
+    .bail()
+    .isInt({ min: 1 }).withMessage('El id debe ser un número entero positivo')
 ];
