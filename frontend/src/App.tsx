@@ -1,10 +1,10 @@
+import { MainLayout } from './layouts';
+
 function App() {
   return (
-    <>
-      <body className="bg-slate-800">
-        <h1 className="text-green-400">Prueba</h1>
-      </body>
-    </>
+    <MainLayout>
+      <h1 className="text-blue-200 text-2xl">Prueba técnica - Control Escolar</h1>
+    </MainLayout>
   );
 }
 
