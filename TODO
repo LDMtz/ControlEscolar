@@ -92,7 +92,7 @@ TODO - Control escolar:
         ✔ Coleccion Postman @done(25-12-21 07:59)
 
     5. Frontend - UI:
-        ☐ Configurar axios
+        ✔ Configurar axios @done(25-12-22 05:45)
         ☐ Tipos de Typescript
         ☐ Servicios (Lllamadas a las APIs)
         ☐ Vistas
