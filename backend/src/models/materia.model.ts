@@ -12,31 +12,31 @@ export class Materia extends Model {
 }
 
 Materia.init(
-    {
-        id: { 
-            type: DataTypes.INTEGER, 
-            primaryKey: true, 
-            allowNull: false,
-            autoIncrement: true 
-        },
-        codigo: { 
-            type: DataTypes.STRING(50), 
-            allowNull: true,
-            unique: true 
-        },
-        nombre: { 
-            type: DataTypes.STRING(150), 
-            allowNull: false 
-        },
-        descripcion: { 
-            type: DataTypes.TEXT,
-            allowNull: true,
-        },
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      allowNull: false,
+      autoIncrement: true,
     },
-    {
-        sequelize,
-        tableName: 'materias',
-        paranoid: true, // soft delete
-        underscored: true,
-    }
+    codigo: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+      unique: true,
+    },
+    nombre: {
+      type: DataTypes.STRING(150),
+      allowNull: false,
+    },
+    descripcion: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+  },
+  {
+    sequelize,
+    tableName: 'materias',
+    paranoid: true, // soft delete
+    underscored: true,
+  },
 );

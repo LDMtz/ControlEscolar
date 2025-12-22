@@ -14,28 +14,28 @@ export class Usuario extends Model {
 
 Usuario.init(
   {
-    id: { 
-      type: DataTypes.INTEGER, 
+    id: {
+      type: DataTypes.INTEGER,
       autoIncrement: true,
       allowNull: false,
-      primaryKey: true, 
+      primaryKey: true,
     },
-    nombre: { 
-      type: DataTypes.STRING(120), 
-      allowNull: false 
-    },
-    email: { 
-      type: DataTypes.STRING(255), 
+    nombre: {
+      type: DataTypes.STRING(120),
       allowNull: false,
-      unique: true 
     },
-    password_hash: { 
-      type: DataTypes.STRING(255), 
-      allowNull: false 
+    email: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      unique: true,
     },
-    rol_id: { 
-      type: DataTypes.INTEGER, 
-      allowNull: false 
+    password_hash: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+    rol_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   },
   {
@@ -43,7 +43,7 @@ Usuario.init(
     tableName: 'usuarios',
     paranoid: true, // soft delete
     underscored: true,
-  }
+  },
 );
 
 Usuario.belongsTo(Rol, { foreignKey: 'rol_id' });

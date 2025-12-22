@@ -16,16 +16,7 @@ const ROL_MAESTRO = 1;
 router.use(authMiddleware);
 router.use(requireRole(ROL_MAESTRO));
 
-router.get(
-    '/alumnos', 
-    maestro.getAlumnosMaestro
-);
-
-router.post(
-    '/calificaciones', 
-    postCalificacionValidation, 
-    validate, 
-    maestro.postCalificacion
-);
+router.get('/alumnos', maestro.getAlumnosMaestro);
+router.post('/calificaciones', postCalificacionValidation, validate, maestro.postCalificacion);
 
 export default router;

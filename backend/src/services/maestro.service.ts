@@ -3,7 +3,7 @@ import { Alumno } from '../models/alumno.model.js';
 import { Materia } from '../models/materia.model.js';
 import { AppError } from '../utils/AppError.js';
 
-//Obtiene alumnos relacionados a las calificaciones del maestro 
+//Obtiene alumnos relacionados a las calificaciones del maestro
 export const getAlumnosMaestroService = async (maestroId: number) => {
   const alumnos = await Alumno.findAll({
     include: [
@@ -30,9 +30,8 @@ export const postCalificacionService = async (
     materia_id: number;
     nota: number;
     observaciones?: string;
-  }
+  },
 ) => {
-
   const alumno = await Alumno.findByPk(data.alumno_id);
   if (!alumno) {
     throw new AppError('El alumno no existe en la BD', 404);
