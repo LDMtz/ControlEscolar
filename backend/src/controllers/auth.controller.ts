@@ -4,12 +4,12 @@ import { loginService } from '../services/auth.service.js';
 
 let self: any = {};
 
-self.login = async (req: Request, res: Response, next:NextFunction) => {
-  try{
+self.login = async (req: Request, res: Response, next: NextFunction) => {
+  try {
     const { email, password } = req.body;
     const result = await loginService(email, password);
     res.json(result);
-  } catch (error){
+  } catch (error) {
     next(error);
   }
 };

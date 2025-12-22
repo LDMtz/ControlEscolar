@@ -70,8 +70,8 @@ TODO - Control escolar:
             ✔ Crear .env y .env-example @done(25-12-10 05:37)
             ✔ Crear archvo de config de typescript (npx tsc --init) @done(25-12-10 05:38)
             ✔ Pasar de CommonJS a ESModules @done(25-12-10 05:41)
-            ☐ Archivo de conf de Prettier
-            ☐ Archivo de conf de eslint
+            ✔ Archivo de conf de Prettier @done(25-12-22 01:15)
+            ✘ Archivo de conf de eslint @cancelled(25-12-22 01:15)
   
         ✔ Crear README.md @done(25-12-10 05:41)
 
@@ -129,7 +129,9 @@ TODO - Control escolar:
         ✔ feature/backend-seeders @done(25-12-18 21:08)
         ✔ feature/api-maestro @done(25-12-20 07:36)
         ✔ feature/api-control-escolar @done(25-12-21 06:27)
+        ✔ feature/prettier-backend @done(25-12-22 01:15)
         
+        ☐ feature/frontend-setup
         ☐ feature/ui-auth
         ☐ feature/ui-admin
         ☐ feature/ui-maestro

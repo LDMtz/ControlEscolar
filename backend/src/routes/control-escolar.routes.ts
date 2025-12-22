@@ -1,12 +1,16 @@
 import { Router } from 'express';
 
-import control_escolar from '../controllers/control-escolar.controller.js';
+import ctrl_esc from '../controllers/control-escolar.controller.js';
 
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { requireRole } from '../middlewares/role.middleware.js';
 import { validate } from '../middlewares/validate.middleware.js';
 
-import { getReporteValidation, deleteCalificacionValidation, patchCalificacionValidation } from '../validations/control-escolar.validate.js';
+import {
+  getReporteValidation,
+  deleteCalificacionValidation,
+  patchCalificacionValidation,
+} from '../validations/control-escolar.validate.js';
 
 const router = Router();
 
@@ -16,26 +20,8 @@ const ROL_CONTROL_ESCOLAR = 2;
 router.use(authMiddleware);
 router.use(requireRole(ROL_CONTROL_ESCOLAR));
 
-router.get(
-    '/reporte', 
-    getReporteValidation, 
-    validate, 
-    control_escolar.getReporte
-);
-
-router.delete(
-    '/calificaciones/:id',
-    deleteCalificacionValidation,
-    validate,
-    control_escolar.deleteCalificacion
-);
-
-router.patch(
-  '/calificaciones/:id',
-  authMiddleware,
-  patchCalificacionValidation,
-  validate,
-  control_escolar.patchCalificacion
-);
+router.get('/reporte', getReporteValidation, validate, ctrl_esc.getReporte);
+router.delete('/calificaciones/:id', deleteCalificacionValidation, validate, ctrl_esc.deleteCalificacion);
+router.patch('/calificaciones/:id', authMiddleware, patchCalificacionValidation, validate, ctrl_esc.patchCalificacion);
 
 export default router;

@@ -10,19 +10,14 @@ const config = require('../config/database.cjs') as Config;
 type ConfigKeys = 'development' | 'test' | 'production';
 
 const env = (process.env.NODE_ENV || 'development') as ConfigKeys;
-const dbConfig = config[env]; 
+const dbConfig = config[env];
 
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  {
-    host: dbConfig.host,
-    port: dbConfig.port,
-    dialect: dbConfig.dialect,
-    logging: env === 'development' ? console.log : false
-  }
-);
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+  host: dbConfig.host,
+  port: dbConfig.port,
+  dialect: dbConfig.dialect,
+  logging: env === 'development' ? console.log : false,
+});
 
 //Tipos
 interface DatabaseConfig {

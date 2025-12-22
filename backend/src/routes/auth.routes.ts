@@ -5,11 +5,6 @@ import { validate } from '../middlewares/validate.middleware.js';
 
 const router = Router();
 
-router.post(
-    '/login', 
-    loginValidation, 
-    validate, 
-    auth.login
-);
+router.post('/login', loginValidation, validate, auth.login);
 
 export default router;
